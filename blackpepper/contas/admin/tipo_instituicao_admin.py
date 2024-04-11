@@ -1,7 +1,6 @@
 from django.contrib import admin
 from contas.models.tipo_institituicao import TipoInstituicao
 
-class TipoInstituicaoAdmin(admin.AdminSite):
+@admin.register(TipoInstituicao)
+class TipoInstituicaoAdmin(admin.ModelAdmin):
     display_list = ("nome")
-
-admin.site.register(TipoInstituicao)
