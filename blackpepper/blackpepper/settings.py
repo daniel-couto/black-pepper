@@ -33,9 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'admin_totals',
     'contas.apps.ContasConfig',
-    'configuracoes.apps.ConfiguracoesConfig',
-    'ativos.apps.AtivosConfig',
-    'pagamentos.apps.PagamentosConfig',
+    # 'configuracoes.apps.ConfiguracoesConfig',
+    # 'ativos.apps.AtivosConfig',
+    # 'pagamentos.apps.PagamentosConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

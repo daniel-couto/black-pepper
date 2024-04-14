@@ -9,7 +9,7 @@ import logging
 # MODULOS DJANGO
 
 # MODULOS DJANGO: EXTENSOES ESTRUTURANTES
-from django_base.admin import FieldAdminBase # type: ignore
+from _patterns.admin import FieldAdminBase
 # MODULOS DJANGO: EXTENSOES
 
 # MODULOS DO PROJETO VERDINHU - OUTROS APPS
@@ -21,10 +21,10 @@ from django_base.admin import FieldAdminBase # type: ignore
 class ModelBase(models.Model):
     logger = logging.getLogger("geral")
 
-    history = HistoricalRecords(
-        inherit=True,
-        history_change_reason_field=models.TextField(null=True)
-    )
+    # history = HistoricalRecords(
+    #     inherit=True,
+    #     history_change_reason_field=models.TextField(null=True)
+    # )
     
     """
     campos estritamente automaticos / calculados
@@ -34,6 +34,11 @@ class ModelBase(models.Model):
     campos opcionalmente calculados / automaticos
     """
     automatic_loose_fields = ()
+    
+    _codigo = None
+    @property
+    def codigo(self):
+        raise NotImplementedError("Should have implemented property 'codigo'")
 
     """
     Campos protegidos: 

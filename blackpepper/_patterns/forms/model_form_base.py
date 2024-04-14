@@ -5,11 +5,11 @@ class ModelFormBase(forms.ModelForm):
         'django.forms.widgets.PermissionForm',
     ]
 
-    just_mudanca = forms.CharField(
-        required=True,
-        widget=forms.widgets.Textarea,
-        label="Justificativa para alteração"
-    )
+    # just_mudanca = forms.CharField(
+    #     required=True,
+    #     widget=forms.widgets.Textarea,
+    #     label="Justificativa para alteração"
+    # )
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -71,7 +71,7 @@ class ModelFormBase(forms.ModelForm):
                     continue
 
     def save(self, commit=True):
-        just_mudanca = self.cleaned_data.get('just_mudanca', None)
+        # just_mudanca = self.cleaned_data.get('just_mudanca', None)
 
         # self.description = "my result" note that this does not work
 
@@ -79,7 +79,7 @@ class ModelFormBase(forms.ModelForm):
         instance = super().save(commit=commit)
 
         # this writes the processed data to the description field
-        instance._change_reason = just_mudanca
+        # instance._change_reason = just_mudanca
 
         if commit:
             instance.save()

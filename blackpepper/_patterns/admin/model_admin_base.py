@@ -1,6 +1,6 @@
 from django.contrib import admin
 from simple_history.admin import SimpleHistoryAdmin
-from django_base.forms import ModelFormBase
+from _patterns.forms import ModelFormBase
 from .field_admin_base import FieldAdminBase
 
 class ModelAdminBase(SimpleHistoryAdmin):

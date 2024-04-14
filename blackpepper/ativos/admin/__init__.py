@@ -1,3 +1,2 @@
-from .renda_fixa_admin import RendaFixaAdmin
-# from .ativo_fii import AtivoRendaFixaAdmin
-# from .ativo_acoes import AtivoRendaFixaAdmin
+from .ativo_admin import AtivoAdmin
+from .ativo_tipo_admin import AtivoTipoAdmin

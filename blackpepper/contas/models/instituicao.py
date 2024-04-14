@@ -1,14 +1,13 @@
 from django.db import models
-from .tipo_institituicao import TipoInstituicao
+from _patterns.models import ModelBase
 
-class Instituicao(models.Model):
+class Instituicao(ModelBase):
     nome = models.CharField(
         max_length=128,
         blank=False,
         null=False,
         default=""
     )
-    tipo_instituicao = models.ManyToManyField(TipoInstituicao)
 
     def __str__(self):
         return self.nome

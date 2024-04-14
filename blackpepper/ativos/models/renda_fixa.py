@@ -1,6 +1,6 @@
 from django.db import models
 from .renda_fixa_tipo import RendaFixaTipo
-from contas.models import Instituicao, Conta
+from contas.models import Instituicao
 from configuracoes.models import Indexadores
 
 class RendaFixa(models.Model):
@@ -15,20 +15,24 @@ class RendaFixa(models.Model):
     rentabilidade_pre = models.DecimalField(
         default=0, 
         decimal_places=2, 
-        max_digits=3)
+        max_digits=8)
     rentabilidade_pos = models.DecimalField(
         default=0, 
         decimal_places=2, 
-        max_digits=3)
+        max_digits=8)
     rentabilidade_pos_indexador = models.ForeignKey(
         Indexadores, 
         on_delete=models.RESTRICT)
     emissor = models.ForeignKey(
         Instituicao, 
-        on_delete=models.RESTRICT)
-    conta = models.ForeignKey(
-        Conta, 
-        on_delete=models.RESTRICT)
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,)
+    emissor = models.ForeignKey(
+        Instituicao, 
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,)
 
     def __str__(self):
         return self.nome
